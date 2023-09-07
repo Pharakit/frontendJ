@@ -1,6 +1,70 @@
+// // 
+// import { useSession, signIn, signOut } from "next-auth/react"
+
+// export async function getStaticProps() {
+//   const res = await fetch('http://localhost:3000/api/users')
+//   const posts = await res.json()
+
+//   return {
+//     props: {
+//       posts,
+//     },
+//   }
+// }
+
+// export default function Component({ posts }) {
+//   const { data: session } = useSession()
+
+//   if (session) {
+//     return (
+//       <>
+//         <div className="container">
+//           <div className="row">
+//             <div className="col">
+//               Signed in as {session.user.email} <br />
+//               {session.user.fname} {session.user.lname} <br />
+//               <button onClick={() => signOut()}>Sign out</button>
+//             </div>
+//           </div>
+//           <div className="row">
+//             <div className="col">
+//               <table className="table table-striped">
+//                 <thead>
+//                   <tr className="bg-warning">
+//                     <th>Student ID</th>
+//                     <th>First Name</th>
+//                     <th>Last Name</th>
+//                     <th>Password</th>
+//                   </tr>
+//                 </thead>
+//                 <tbody>
+//                   {posts.users.map((post) => (
+//                     <tr key={post.id}>
+//                       <td>{post.studentid}</td>
+//                       <td>{post.firstname}</td>
+//                       <td>{post.lastname}</td>
+//                       <td>{post.password}</td>
+//                     </tr>
+//                   ))}
+//                 </tbody>
+//               </table>
+//             </div>
+//           </div>
+//         </div>
+//       </>
+//     )
+//   }
+
+//   return (
+//     <>
+//       Not signed in <br />
+//       <button onClick={() => signIn()}>Sign in</button>
+//     </>
+//   )
+// }
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/router";
-
+import Link from 'next/link';
 
 export default function Component({ posts }) {
   const { data: session } = useSession()
@@ -48,17 +112,17 @@ export default function Component({ posts }) {
 
   }; //end handleSubmit
 
-  if (session) {
+  // if (session) {
     return (
       <>
 
-<nav className="navbar navbar-light bg-warning">
+{/* <nav className="navbar navbar-light bg-warning">
   <div className="container-fluid">
   <div className="col">
   <div align="right"> Signed in as {session.user.email} {session.user.fname} {session.user.lname} <button  className="btn btn-danger" onClick={() => signOut()}>Sign out</button></div>
   </div>
   </div>
-</nav>
+</nav> */}
 <br></br>
 <div className="card mx-auto" style={{ width: "1250px" }}>
       <div className="card-header">
@@ -124,7 +188,7 @@ export default function Component({ posts }) {
           <tr>
             <td>
           <button type="submit" className="btn btn-success">SAVE</button>&nbsp;&nbsp; {/* */}
-          <button type="submit" className="btn btn-warning">Back</button> {/* */}
+          <button className="btn btn-warning"><Link href="." > Back </Link></button> {/* */}
           </td>
           </tr>
           </form>
@@ -136,10 +200,10 @@ export default function Component({ posts }) {
     )
   }
 
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  )
-}
+//   return (
+//     <>
+//       Not signed in <br />
+//       <button onClick={() => signIn()}>Sign in</button>
+//     </>
+//   )
+// }
