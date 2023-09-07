@@ -30,7 +30,7 @@ return router.reload('/dashboard')
     return (
       <>
 
- <nav className="navbar navbar-light bg-warning">
+ <nav className="navbar navbar-light bg-dark">
   <div className="container-fluid">
   <div className="col">
   <div align="right"> Signed in as &nbsp;&nbsp;{session.user.email}&nbsp;&nbsp; {session.user.firstname}&nbsp; {session.user.lastname} &nbsp;&nbsp; <button  className="btn btn-danger" onClick={() => signOut()}>Sign out</button></div>
